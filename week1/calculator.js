@@ -21,8 +21,22 @@ let calculator = {
 	},
 };
 calculator.read();
+document.getElementById(
+	"a"
+).innerHTML = `Your first number is ${calculator["a"]}`;
+document.getElementById(
+	"b"
+).innerHTML = `Your second number is ${calculator["b"]}`;
 
-document.getElementById("sum").innerHTML = calculator.sum();
-document.getElementById("mul").innerHTML = calculator.mul();
-document.getElementById("sub").innerHTML = calculator.sub();
-document.getElementById("div").innerHTML = calculator.div();
+document.getElementById(
+	"sum"
+).innerHTML = `The Sum of your numbers is ${calculator.sum()}`;
+document.getElementById(
+	"mul"
+).innerHTML = `The Product of your numbers is ${calculator.mul()}`;
+document.getElementById(
+	"sub"
+).innerHTML = `The difference of your numbers is ${calculator.sub()}`;
+document.getElementById(
+	"div"
+).innerHTML = `The quotient of your numbers is ${calculator.div()}`;
