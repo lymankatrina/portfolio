@@ -1,14 +1,14 @@
 // shows children of document.body
 for (let i = 0; i < document.body.childNodes.length; i++) {
-	return document.body.childNodes[i];
+	alert(document.body.childNodes[i]);
 }
 
 // shows all nodes from the collection
 for (let node of document.body.childNodes) {
-	return node;
+	alert(node);
 }
 
 // show only elements
 for (let elem of document.body.children) {
-	return elem;
+	alert(elem);
 }
