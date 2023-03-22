@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+  <title>Forms || Week 3 || Katrina Lyman Portfolio</title>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+	rel="stylesheet"
+/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header>
+  <h1>Example Form Layout using CSS Grid</h1>
+</header>
+<main>
+	<h3>Future Value</h3>
+	<div class="gridform">
+		<label for="principle">Principle: </label>
+		<input type="text" id="principle" required>
+		<label for="annualrate">Annual rate: </label>
+		<input type="text" id="annualrate" placeholder=".08" required>
+		<label for="years">Years:  </label>
+		<input type="text" id="years" required>
+		<label for="periods">Periods: </label>
+		<input type="text" id="periods" required>
+	</div>
+	<button onclick="doFV()">Compute Future Value</button>
+	<hr> Future Value: <span id="output"></span>
+</main>
+<footer>
+</footer>
+<script src="form.js"></script>
+</body>
+</html>
