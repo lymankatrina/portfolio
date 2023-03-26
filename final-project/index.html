@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>View || Book Finder</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<header>
@@ -18,13 +17,15 @@
     <h2> Find a Book</h2>
     <form>
       <p>Enter any key word, title, author, subject, category, etc.</p>
-      <input type="text" value="Search for a book">
-      <input type="submit" value="Find a Book">
+      <input type="text">
+      <button type="submit" id="result" value="Find a Book">Find a Book</button>
     </form>
     <form>
       <input type="button" value="Advanced Search Options" src="advanced/index.html">
     </form>
+    <div id="result"></div>
   </main>
   <footer></footer>
+  <script src="fetch.js"></script>
 </body>
 </html>
