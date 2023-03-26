@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+  <title>Forms || Week 3 || Katrina Lyman Portfolio</title>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+	rel="stylesheet"
+/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Using FormData to Parse Forms</h1>
+  </header>
+  <main>
+    <form action="#" id="myForm">
+      <fieldset>
+        <legend>Registration</legend>
+        <div class="formBox">
+          <label for="first">First Name</label
+          ><input
+            type="text"
+            id="first"
+            name="first"
+            autocomplete="off"
+            autocapitalize="on"
+          />
+        </div>
+        <div class="formBox">
+          <label for="last">Last Name</label
+          ><input
+            type="text"
+            id="last"
+            name="last"
+            required
+            autocomplete="off"
+            autocapitalize="on"
+          />
+        </div>
+        <div class="formBox">
+          <label for="email">Email</label
+          ><input
+            type="email"
+            id="email"
+            name="email"
+            required
+            autocomplete="off"
+          />
+        </div>
+        <div class="formBox">
+          <label for="pass">Password</label
+          ><input
+            type="password"
+            id="pass"
+            name="pass"
+            required
+            autocomplete="off"
+          />
+        </div>
+        <div class="formBox">
+          <label for="spam">I love spam</label
+          ><input type="checkbox" id="spam" name="spam" checked />
+        </div>
+        <div class="formBox">
+          <button id="btnSubmit">Send</button>
+        </div>
+      </fieldset>
+    </form>
+  </main>
+  <footer><hr>A little footer info
+</footer>
+<script src="forms.js"></script>
+</body>
+</html>
