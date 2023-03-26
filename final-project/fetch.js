@@ -1,32 +1,21 @@
+"use strict";
 const button = document.querySelector("button");
 const subInput = document.querySelector("input");
 const result = document.querySelector("#result");
 
-function renderList(json) {
-	const posts = json.data.children;
-	return `<ol>
-    ${posts
-		.map(
-			(post) =>
-				`<li>${post.data.title} <a href=${post.data.url} target='_blank'>Link</a></li>`
-		)
-		.join("")}
-  </ol>`;
-}
-
-async function fetchTopFive(sub) {
+async function fetchBooks(sub) {
 	const options = {
 		method: "GET",
 		headers: {
 			"X-RapidAPI-Key":
-				"987f443846msh8bdb77afe8799fep1a8fcfjsn2ff65de1a993",
+				"491c312488mshb16d3ecb5b93391p1610e9jsnb8aff7ce3bdc",
 			"X-RapidAPI-Host": "book-finder1.p.rapidapi.com",
 		},
 	};
 	try {
 		const fetchResult = fetch(
 			new Request(
-				`https://book-finder1.p.rapidapi.com/api/search?title=${sub}&author=${sub}&series=${sub}&results_per_page=&page=1`,
+				`https://book-finder1.p.rapidapi.com/api/search?title=${sub}&author=${sub}&series=${sub}&results_per_page=20&page=1`,
 				options
 			)
 		);
@@ -35,13 +24,13 @@ async function fetchTopFive(sub) {
 			const jsonData = await response.json();
 			result.innerHTML = renderList(jsonData);
 		} else {
-			result.innerHTML = `Response.status: ${response.status}`;
+			result.innerHTML = `Resonse.status:${response.status}`;
 		}
-	} catch (e) {
-		result.innerHTML = e;
+	} catch (err) {
+		result.innerHTML = err;
 	}
 }
 
 button.addEventListener("click", () => {
-	fetchTopFive(subInput.value);
+	fetchBooks(subInput.value);
 });
