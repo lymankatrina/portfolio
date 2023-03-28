@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<h2>JavaScript Geolocation</h2>
+
+		<p>Click the button to get your coordinates.</p>
+
+		<button onclick="getLocation()">Try It</button>
+		<p id="demo"></p>
+		<br />
+		<div id="googleMap" style="width: 100%; height: 400px"></div>
+
+		<script src="geoloc.js"></script>
+		<script
+			async
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-fKzIHxVNe9yvfDdWRsGgMKtr5KN93bs&callback=myMap"
+		></script>
+	</body>
+</html>

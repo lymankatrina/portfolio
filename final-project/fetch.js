@@ -3,6 +3,18 @@ const button = document.querySelector("button");
 const subInput = document.querySelector("input");
 const result = document.querySelector("#result");
 
+function renderList(json) {
+	const posts = json.data.children;
+	return `<ol>
+    ${posts
+		.map(
+			(post) =>
+				`<li>${post.data.title_search} <a href=${post.data.authors} target='_blank'>Link</a></li>`
+		)
+		.join("")}
+  </ol>`;
+}
+
 async function fetchBooks(sub) {
 	const options = {
 		method: "GET",
@@ -26,8 +38,8 @@ async function fetchBooks(sub) {
 		} else {
 			result.innerHTML = `Resonse.status:${response.status}`;
 		}
-	} catch (err) {
-		result.innerHTML = err;
+	} catch (e) {
+		result.innerHTML = e;
 	}
 }
 
