@@ -1,31 +1,69 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>View || Book Finder</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-	<header>
-		<img class="logo" src="#" />
-
-	</header>
-  <nav></nav>
-  <main>
-    <h1>Welcome to Book Finder</h1>
-    <h2> Find a Book</h2>
-    <form>
-      <p>Enter any key word, title, author, subject, category, etc.</p>
-      <input type="text">
-      <button type="submit" id="result" value="Find a Book">Find a Book</button>
-    </form>
-    <form>
-      <input type="button" value="Advanced Search Options" src="advanced/index.html">
-    </form>
-    <div id="result"></div>
-  </main>
-  <footer></footer>
-  <script src="fetch.js"></script>
-</body>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Advanced Search || Book Finder</title>
+		<link rel="stylesheet" href="/final-project/style.css" />
+		<script defer src="../js/header.js"></script>
+		<script defer src="../js/nav.js"></script>
+		<script defer src="../js/footer.js"></script>
+	</head>
+	<body>
+		<header id="mainHeader"></header>
+		<nav id="mainNav"></nav>
+		<main>
+			<h2>Welcome to Book Finder</h2>
+			<h3>Advanced Search</h3>
+			<form action="" method="" id="advancedSearch">
+				<fieldset id="advanced">
+					<legend>
+						Enter criteria for at least one advanced search option
+					</legend>
+					<label for="title">Title:</label>
+					<input type="text" id="title" name="title" /><br />
+					<label for="author">Author:</label>
+					<input type="text" name="author" id="author" /><br />
+					<label for="series">Series:</label>
+					<input type="text" name="series" id="series" /><br />
+					<label for="book_type">Book Type:</label>
+					<select name="book_type" id="book_type">
+						<option value="fiction">Fiction</option>
+						<option vlaue="non-fiction">Non-Fiction</option></select
+					><br />
+					<label for="categories">Categories:</label>
+					<input
+						type="text"
+						name="categories"
+						id="categories"
+					/><br />
+					<label for="lexile_min">Minimum Lexile Measure:</label>
+					<input
+						type="number"
+						name="lexile_min"
+						id="lexile_min"
+						min="-650"
+						max="2150"
+						step="100"
+					/><br />
+					<label for="lexile_max">Maximum Lexile Measure:</label>
+					<input
+						type="number"
+						name="lexile_max"
+						id="lexile_max"
+						min="-650"
+						max="2150"
+						step="100"
+					/><br />
+					<button type="submit" id="result" value="Find a Book">
+						Find a Book
+					</button>
+				</fieldset>
+			</form>
+			<div id="result"></div>
+		</main>
+		<footer id="basicFooter"></footer>
+		<script src="/final-project/js/advancedRequest.js"></script>
+	</body>
 </html>

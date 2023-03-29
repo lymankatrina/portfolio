@@ -1,31 +1,48 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>View || Book Finder</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-	<header>
-		<img class="logo" src="#" />
-
-	</header>
-  <nav></nav>
-  <main>
-    <h1>Welcome to Book Finder</h1>
-    <h2> Find a Book</h2>
-    <form>
-      <p>Enter any key word, title, author, subject, category, etc.</p>
-      <input type="text">
-      <button type="button" id="result" value="Find a Book">Find a Book</button>
-    </form>
-    <form>
-      <input type="button" value="Advanced Search Options" src="advanced/index.html">
-    </form>
-    <div id="result"></div>
-  </main>
-  <footer></footer>
-  <script src="fetch.js"></script>
-</body>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Home Page || Book Finder</title>
+		<link rel="stylesheet" href="style.css" />
+		<link
+			rel="stylesheet"
+			href="http://href%3D%22https//use.typekit.net/qhe5erz.css%22%3E"
+		/>
+		<script defer src="js/header.js"></script>
+		<script defer src="js/nav.js"></script>
+		<script defer src="js/footer.js"></script>
+	</head>
+	<body>
+		<header id="mainHeader"></header>
+		<nav id="mainNav"></nav>
+		<main>
+			<h2>Welcome to Book Finder</h2>
+			<h3>Find a Book</h3>
+			<form action="details/index.html" classs="basicSearch">
+				<fieldset>
+					<legend>
+						Enter any key word, title, author, or series.
+					</legend>
+					<label for="basic"></label>
+					<input type="text" id="basic" name="basic" />
+					<button type="submit" id="search" value="Find a Book">
+						Find a Book
+					</button>
+				</fieldset>
+			</form>
+			<form id="advSearch">
+				<input
+					id="advSearchBtn"
+					type="button"
+					value="Advanced Search Options"
+					onclick="window.location.href='advanced/index.html';"
+				/>
+			</form>
+			<div id="result"></div>
+		</main>
+		<footer id="basicFooter"></footer>
+		<script src="js/basicRequest.js"></script>
+	</body>
 </html>

@@ -4,17 +4,19 @@ const subInput = document.querySelector("input");
 const result = document.querySelector("#result");
 
 function renderList(json) {
-	const posts = json.data.children;
+	const books = json.results;
 	return `<ol>
-    ${posts
+    ${books
 		.map(
-			(post) =>
-				`<li>${post.data.title_search} <a href=${post.data.authors} target='_blank'>Link</a></li>`
+			(book) =>
+				`<li>Title: ${book.title} Author: ${book.authors} <a href='details/index.html
+        '>More Details</a></li>`
 		)
 		.join("")}
   </ol>`;
 }
 
+// This is the basic fetch request
 async function fetchBooks(sub) {
 	const options = {
 		method: "GET",
@@ -42,7 +44,11 @@ async function fetchBooks(sub) {
 		result.innerHTML = e;
 	}
 }
-
+document.getElementById("basic").addEventListener("keypress", function (event) {
+	if (event.keycode == 13) {
+		event.preventDefault();
+	}
+});
 button.addEventListener("click", () => {
 	fetchBooks(subInput.value);
 });
