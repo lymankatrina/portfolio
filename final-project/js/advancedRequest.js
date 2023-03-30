@@ -1,36 +1,66 @@
 "use strict";
 const button = document.querySelector("button");
-let sTitle = document.querySelector("title");
-let sAuthor = document.querySelector("author");
-let sSeries = document.querySelector("series");
-let sBook_Type = document.querySelector("book_type");
-let sCategories = document.querySelector("categories");
-let sLexile_min = document.querySelector("lexile_min");
-let sLexile_max = document.querySelector("lexile_max");
-let result = document.querySelector("#result");
+const sTitle = document.querySelector("#title");
+const sAuthor = document.querySelector("#author");
+const sSeries = document.querySelector("#series");
+const sBook_Type = document.querySelector("#book_type");
+const sCategories = document.querySelector("#categories");
+const sLexile_min = document.querySelector("#lexile_min");
+const sLexile_max = document.querySelector("#lexile_max");
+const result = document.querySelector("#result");
+
+function renderList(json) {
+	const books = json.results;
+	return `<ol>
+    ${books
+		.map((book) => {
+			return `<li>Title: ${book.title} Author: ${book.authors} <a href='details/index.html
+        '>More Details</a></li>`;
+		})
+		.join("")}
+  </ol>`;
+}
 
 async function buildsCategories() {
-	if (typeof sTitle !== "undefined") {
-		let sTitle = `title=${sTitle}`;
+	let searchOptions = "";
+	if (sTitle.value.length > 0) {
+		searchOptions += `title=${sTitle.value}&`;
 	}
-	if (typeof sAuthor !== "undefined") {
-		let sAuthor = ``;
+	if (sAuthor.value.length > 0) {
+		searchOptions += `author=${sAuthor.value}&`;
 	}
+	if (sSeries.value.length > 0) {
+		searchOptions += `series=${sSeries.value}&`;
+	}
+	if (sBook_Type.value.length > 0) {
+		searchOptions += `book_type=${sBook_Type.value}&`;
+	}
+	if (sCategories.value.length > 0) {
+		searchOptions += `categories=${sCategories.value}&`;
+	}
+	if (sLexile_min.value.length > 0) {
+		searchOptions += `lexile_min=${sLexile_min.value}&`;
+	}
+	if (sLexile_max.value.length > 0) {
+		searchOptions += `lexile_max=${sLexile_max.value}&`;
+	}
+	return searchOptions;
 }
 // This is the basic fetch request
 async function fetchAdvancedBooks() {
+	let criteria = buildsCategories();
 	const options = {
 		method: "GET",
 		headers: {
 			"X-RapidAPI-Key":
-				"491c312488mshb16d3ecb5b93391p1610e9jsnb8aff7ce3bdc",
+				"987f443846msh8bdb77afe8799fep1a8fcfjsn2ff65de1a993",
 			"X-RapidAPI-Host": "book-finder1.p.rapidapi.com",
 		},
 	};
 	try {
 		const fetchResult = fetch(
 			new Request(
-				`https://book-finder1.p.rapidapi.com/api/search?${sCriteria}`,
+				`https://book-finder1.p.rapidapi.com/api/search?${criteria}results_per_page=20&page=1`,
 				options
 			)
 		);
@@ -39,7 +69,7 @@ async function fetchAdvancedBooks() {
 			const jsonData = await response.json();
 			result.innerHTML = renderList(jsonData);
 		} else {
-			result.innerHTML = `Resonse.status:${response.status}`;
+			result.innerHTML = `Response.status:${response.status}`;
 		}
 	} catch (e) {
 		result.innerHTML = e;
@@ -47,5 +77,5 @@ async function fetchAdvancedBooks() {
 }
 
 button.addEventListener("click", () => {
-	fetchBooks(subInput.value);
+	fetchAdvancedBooks();
 });

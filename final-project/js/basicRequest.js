@@ -38,7 +38,7 @@ async function fetchBooks(sub) {
 			const jsonData = await response.json();
 			result.innerHTML = renderList(jsonData);
 		} else {
-			result.innerHTML = `Resonse.status:${response.status}`;
+			result.innerHTML = `Response.status:${response.status}`;
 		}
 	} catch (e) {
 		result.innerHTML = e;
