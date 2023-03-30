@@ -44,11 +44,7 @@ async function fetchBooks(sub) {
 		result.innerHTML = e;
 	}
 }
-document.getElementById("basic").addEventListener("keypress", function (event) {
-	if (event.keycode == 13) {
-		event.preventDefault();
-	}
-});
+
 button.addEventListener("click", () => {
 	fetchBooks(subInput.value);
 });

@@ -16,7 +16,7 @@
 		<main>
 			<h2>Welcome to Book Finder</h2>
 			<h3>Advanced Search</h3>
-			<form action="" method="" id="advancedSearch">
+			<form id="advancedSearch">
 				<fieldset id="advanced">
 					<legend>
 						Enter criteria for at least one advanced search option
@@ -33,11 +33,32 @@
 						<option vlaue="non-fiction">Non-Fiction</option></select
 					><br />
 					<label for="categories">Categories:</label>
-					<input
-						type="text"
-						name="categories"
-						id="categories"
-					/><br />
+					<select name="categories" id="categories">
+						<option value="Animals%2C%20Bugs%20%26%20Pets">
+							Animals, Bugs & Pets
+						</option>
+						<option value="Art%2C%20Creativity%20%26%20Music">
+							Art, Creativity & Music
+						</option>
+						<option value="General%20Literature">
+							General Literature
+						</option>
+						<option value="Hobbies%2C%20Sports%20%26%20Outdoors">
+							Hobbies, Sports & Outdoors
+						</option>
+						<option value="Science%20Fiction%20%26%20Fantasy">
+							Science Fiction & Fantasy
+						</option>
+						<option value="Real%20Life">Real Life</option>
+						<option value="Science%20%26%20Technology">
+							Science & Technology
+						</option>
+						<option value="Mystery%20%26%20Suspense">
+							Mystery & Suspense
+						</option>
+						<option value="Reference">Reference</option>
+					</select>
+					<br />
 					<label for="lexile_min">Minimum Lexile Measure:</label>
 					<input
 						type="number"
