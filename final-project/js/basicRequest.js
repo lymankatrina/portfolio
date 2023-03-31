@@ -5,15 +5,28 @@ const result = document.querySelector("#result");
 
 function renderList(json) {
 	const books = json.results;
-	return `<ol>
+	return `
     ${books
 		.map(
 			(book) =>
-				`<li>Title: ${book.title} Author: ${book.authors} <a href='details/index.html
-        '>More Details</a></li>`
+				`<div class="card">
+        <img class="bookPic" src="${book.published_works[0].cover_art_url}" alt="cover art of ${book.title}">
+        <div class="container">
+          <h4><b>Title: ${book.title}</b></h4>
+          <p><b>Series:</b> ${book.series_name}</p>
+          <p><b>Authors:</b> ${book.authors}</p>
+          <p><b>Language:</b> ${book.language}</p>
+          <p><b>Lexile:</b> ${book.measurements.english.lexile}</p>
+          <p><b>Number of Pages:</b> ${book.page_count}</p>
+          <p><b>Awards:</b> ${book.awards}</p>
+          <p><b>Categories:</b> ${book.subcategories}</p>
+          <p class="summary line-clamp"><b>Summary:</b> ${book.summary}</p>
+          <p><b>ISBN:</b> ${book.published_works[0].isbn}</p>
+        </div>
+      </div>`
 		)
 		.join("")}
-  </ol>`;
+  `;
 }
 
 // This is the basic fetch request
@@ -22,7 +35,7 @@ async function fetchBooks(sub) {
 		method: "GET",
 		headers: {
 			"X-RapidAPI-Key":
-				"491c312488mshb16d3ecb5b93391p1610e9jsnb8aff7ce3bdc",
+				"987f443846msh8bdb77afe8799fep1a8fcfjsn2ff65de1a993",
 			"X-RapidAPI-Host": "book-finder1.p.rapidapi.com",
 		},
 	};

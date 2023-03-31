@@ -12,14 +12,27 @@ const result = document.querySelector("#result");
 // build the html for the results
 function renderList(json) {
 	const books = json.results;
-	return `<ol>
+	return `
     ${books
 		.map((book) => {
-			return `<li>Title: ${book.title} Author: ${book.authors} <a href='details/index.html
-        '>More Details</a></li>`;
+			return `<div class="card">
+      <img src="${book.published_works[0].cover_art_url}" alt="cover art of ${book.title}">
+      <div class="container">
+        <h4><b>Title: ${book.title}</b></h4>
+        <p>Series: ${book.series_name}</p>
+        <p>Authors: ${book.authors}</p>
+        <p>Language: ${book.language}</p>
+        <p>Lexile: ${book.measurements.english.lexile}</p>
+        <p>Number of Pages: ${book.page_count}</p>
+        <p>Awards: ${book.awards}</p>
+        <p>Categories: ${book.subcategories}</p>
+        <p>Summary: ${book.summary}</p>
+        <p>ISBN: ${book.published_works[0].isbn}</p>
+      </div>
+    </div>`;
 		})
 		.join("")}
-  </ol>`;
+  `;
 }
 
 // get the search criteria from the form
@@ -81,6 +94,10 @@ async function fetchAdvancedBooks() {
 }
 
 // listen for the form submission to call the fetch request
+button.addEventListener("touchend", () => {
+	preventDefault();
+	fetchAdvancedBooks();
+});
 button.addEventListener("click", () => {
 	fetchAdvancedBooks();
 });

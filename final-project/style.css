@@ -152,3 +152,32 @@ hr {
 	background-color: rgb(184, 184, 209);
 	padding-bottom: 1em;
 }
+.card {
+	box-shadow: 0 4px 8px 0 rgb(184, 184, 209);
+	transition: 0.3s;
+	border-radius: 0.5em;
+	margin: 1em;
+	background-color: rgb(255, 255, 251);
+}
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgb(184, 184, 209);
+}
+.container {
+	padding: 2px 16px;
+}
+.bookPic {
+	border-radius: 0.5em 0.5em 0 0;
+	max-width: 100%;
+}
+.summary {
+	color: rgb(91, 95, 151);
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.summary:hover {
+	display: inline;
+	-webkit-line-clamp: unset;
+	overflow: visible;
+}
