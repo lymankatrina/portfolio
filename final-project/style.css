@@ -1,11 +1,11 @@
 body {
-	display: grid;
+	/* display: grid; */
 	margin: 1em;
 	padding: 1em;
 	font-family: new-hero, sans-serif;
 	font-style: normal;
 	font-weight: 100;
-	justify-content: center;
+	/* justify-content: center; */
 }
 .header-container {
 	display: grid;
@@ -201,12 +201,12 @@ footer {
 	padding: 1em;
 }
 @media only screen and (min-width: 768px) {
-	.body {
+	/* .body {
 		width: 80%;
-	}
+	} */
 	.card {
 		display: grid;
-		grid-template-columns: 1fr 2fr;
+		grid-template-columns: 33% 66%;
 		grid-template-rows: auto;
 	}
 	.container {
@@ -215,5 +215,6 @@ footer {
 	}
 	.bookPic {
 		grid-column: 1;
+		width: 100%;
 	}
 }
