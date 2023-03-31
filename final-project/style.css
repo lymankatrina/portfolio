@@ -181,3 +181,8 @@ hr {
 	-webkit-line-clamp: unset;
 	overflow: visible;
 }
+@media only screen and (min-width: 768px) {
+	body {
+		max-width: 1920px;
+	}
+}
