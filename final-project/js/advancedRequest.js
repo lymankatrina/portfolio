@@ -70,7 +70,7 @@ async function fetchAdvancedBooks() {
 		method: "GET",
 		headers: {
 			"X-RapidAPI-Key":
-				"987f443846msh8bdb77afe8799fep1a8fcfjsn2ff65de1a993",
+				"491c312488mshb16d3ecb5b93391p1610e9jsnb8aff7ce3bdc",
 			"X-RapidAPI-Host": "book-finder1.p.rapidapi.com",
 		},
 	};
