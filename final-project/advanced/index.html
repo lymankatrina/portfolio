@@ -11,8 +11,20 @@
 		<script defer src="../js/footer.js"></script>
 	</head>
 	<body>
-		<header id="mainHeader"></header>
-		<nav id="mainNav"></nav>
+		<header class="mainHeader">
+			<div class="header-container">
+				<img class="logo" src="../img/book-logo.svg" alt="book logo" />
+				<h1 class="header-text">Book Finder</h1>
+			</div>
+		</header>
+		<nav class="mainNav">
+			<ul>
+				<li class="btn"><a href="../index.html">Home</a></li>
+				<li vlass="btn">
+					<a href="index.html">Advanced Search</a>
+				</li>
+			</ul>
+		</nav>
 		<main>
 			<h2>Welcome to Book Finder</h2>
 			<h3>Advanced Search</h3>
@@ -86,7 +98,7 @@
 			</form>
 			<div id="result"></div>
 		</main>
-		<footer id="basicFooter"></footer>
+		<footer class="basicFooter"></footer>
 		<script src="../js/advancedRequest.js"></script>
 	</body>
 </html>
