@@ -215,6 +215,5 @@ footer {
 	}
 	.bookPic {
 		grid-column: 1;
-		width: 100%;
 	}
 }
