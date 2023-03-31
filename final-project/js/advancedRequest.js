@@ -16,7 +16,7 @@ function renderList(json) {
     ${books
 		.map((book) => {
 			return `<div class="card">
-      <img src="${book.published_works[0].cover_art_url}" alt="cover art of ${book.title}">
+      <img class="bookpic" src="${book.published_works[0].cover_art_url}" alt="cover art of ${book.title}">
       <div class="container">
         <h4><b>Title: ${book.title}</b></h4>
         <p>Series: ${book.series_name}</p>
@@ -26,7 +26,7 @@ function renderList(json) {
         <p>Number of Pages: ${book.page_count}</p>
         <p>Awards: ${book.awards}</p>
         <p>Categories: ${book.subcategories}</p>
-        <p>Summary: ${book.summary}</p>
+        <p class="summary">Summary: ${book.summary}</p>
         <p>ISBN: ${book.published_works[0].isbn}</p>
       </div>
     </div>`;
