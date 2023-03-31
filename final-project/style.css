@@ -1,9 +1,12 @@
 body {
+	display: grid;
 	margin: 1em;
 	padding: 1em;
 	font-family: new-hero, sans-serif;
 	font-style: normal;
 	font-weight: 100;
+	max-width: 1980px;
+	justify-content: center;
 }
 .header-container {
 	display: grid;
@@ -162,6 +165,7 @@ hr {
 	grid-template-rows: auto;
 	width: 100%;
 	overflow: clip;
+	margin-bottom: 1em;
 }
 .card:hover {
 	box-shadow: 0 8px 16px 0 rgb(184, 184, 209);
@@ -175,7 +179,7 @@ hr {
 	grid-row: 1;
 	grid-column: 1/2;
 	border-radius: 0.5em 0.5em 0 0;
-	max-width: 100px;
+	width: 100%;
 	max-height: auto;
 }
 .summary {
@@ -195,10 +199,6 @@ input:focus:invalid {
 	background-color: rgba(238, 139, 139, 0.3);
 }
 @media only screen and (min-width: 768px) {
-	body {
-		max-width: 1280px;
-		justify-content: center;
-	}
 	.card {
 		display: grid;
 		grid-template-columns: 1fr 2fr;
