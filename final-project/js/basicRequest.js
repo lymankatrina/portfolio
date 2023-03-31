@@ -20,7 +20,7 @@ function renderList(json) {
           <p><b>Number of Pages:</b> ${book.page_count}</p>
           <p><b>Awards:</b> ${book.awards}</p>
           <p><b>Categories:</b> ${book.subcategories}</p>
-          <p class="summary line-clamp"><b>Summary:</b> ${book.summary}</p>
+          <p class="summary"><b>Summary:</b> ${book.summary}</p>
           <p><b>ISBN:</b> ${book.published_works[0].isbn}</p>
         </div>
       </div>`
