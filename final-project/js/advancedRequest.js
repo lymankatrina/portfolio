@@ -9,6 +9,7 @@ const sLexile_min = document.querySelector("#lexile_min");
 const sLexile_max = document.querySelector("#lexile_max");
 const result = document.querySelector("#result");
 
+// build the html for the results
 function renderList(json) {
 	const books = json.results;
 	return `<ol>
@@ -21,7 +22,8 @@ function renderList(json) {
   </ol>`;
 }
 
-async function buildsCategories() {
+// get the search criteria from the form
+async function buildCriteria() {
 	let searchOptions = "";
 	if (sTitle.value.length > 0) {
 		searchOptions += `title=${sTitle.value}&`;
@@ -46,9 +48,11 @@ async function buildsCategories() {
 	}
 	return searchOptions;
 }
+
 // This is the basic fetch request
 async function fetchAdvancedBooks() {
-	let criteria = buildsCategories();
+	// build the criteria to send to the fetch request
+	const criteria = buildCriteria();
 	const options = {
 		method: "GET",
 		headers: {
@@ -76,6 +80,7 @@ async function fetchAdvancedBooks() {
 	}
 }
 
+// listen for the form submission to call the fetch request
 button.addEventListener("click", () => {
 	fetchAdvancedBooks();
 });
