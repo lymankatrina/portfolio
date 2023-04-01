@@ -17,30 +17,31 @@ const result = document.querySelector("#result");
 function renderList(json) {
 	const books = json.results;
 	return `
-    ${books
-		.map((book) => {
-			return `<div class="card">
-      <img class="bookpic" src="${book.published_works[0].cover_art_url}" alt="cover art of ${book.title}">
+  ${books
+		.map(
+			(book) =>
+				`<div class="card">
+      <img class="bookPic" src="${book.published_works[0].cover_art_url}" alt="cover art of ${book.title}">
       <div class="container">
         <h4><b>Title: ${book.title}</b></h4>
-        <p>Series: ${book.series_name}</p>
-        <p>Authors: ${book.authors}</p>
-        <p>Language: ${book.language}</p>
-        <p>Lexile: ${book.measurements.english.lexile}</p>
-        <p>Number of Pages: ${book.page_count}</p>
-        <p>Awards: ${book.awards}</p>
-        <p>Categories: ${book.subcategories}</p>
-        <p class="summary">Summary: ${book.summary}</p>
-        <p>ISBN: ${book.published_works[0].isbn}</p>
+        <p><b>Series:</b> ${book.series_name}</p>
+        <p><b>Authors:</b> ${book.authors}</p>
+        <p><b>Language:</b> ${book.language}</p>
+        <p><b>Lexile:</b> ${book.measurements.english.lexile}</p>
+        <p><b>Number of Pages:</b> ${book.page_count}</p>
+        <p><b>Awards:</b> ${book.awards}</p>
+        <p><b>Categories:</b> ${book.subcategories}</p>
+        <p class="summary"><b>Summary:</b> ${book.summary}</p>
+        <p><b>ISBN:</b> ${book.published_works[0].isbn}</p>
       </div>
-    </div>`;
-		})
+    </div>`
+		)
 		.join("")}
-  `;
+`;
 }
 
 // get the search criteria from the form
-async function buildCriteria() {
+function buildCriteria() {
 	let searchOptions = "";
 	if (sTitle.value.length > 0) {
 		searchOptions += `title=${sTitle.value}&`;
