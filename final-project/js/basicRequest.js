@@ -1,4 +1,5 @@
-"use strict";
+import { options } from "options.mjs";
+
 const button = document.querySelector("button");
 const subInput = document.querySelector("input");
 const result = document.querySelector("#result");
@@ -31,14 +32,14 @@ function renderList(json) {
 
 // This is the basic fetch request
 async function fetchBooks(sub) {
-	const options = {
-		method: "GET",
-		headers: {
-			"X-RapidAPI-Key":
-				"491c312488mshb16d3ecb5b93391p1610e9jsnb8aff7ce3bdc",
-			"X-RapidAPI-Host": "book-finder1.p.rapidapi.com",
-		},
-	};
+	// const options = {
+	// 	method: "GET",
+	// 	headers: {
+	// 		"X-RapidAPI-Key":
+	// 			"491c312488mshb16d3ecb5b93391p1610e9jsnb8aff7ce3bdc",
+	// 		"X-RapidAPI-Host": "book-finder1.p.rapidapi.com",
+	// 	},
+	// };
 	try {
 		const fetchResult = fetch(
 			new Request(
