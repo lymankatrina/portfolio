@@ -58,6 +58,10 @@ async function fetchBooks(sub) {
 	}
 }
 
+button.addEventListener("touchend", () => {
+	preventDefault();
+	fetchBooks();
+});
 button.addEventListener("click", () => {
 	fetchBooks(subInput.value);
 });
