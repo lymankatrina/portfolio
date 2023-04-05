@@ -11,11 +11,9 @@ async function paginated_fetchBooks(sub) {
 		},
 	};
 	let page = 1;
-	const apiUrl = `https://book-finder1.p.rapidapi.com/api/search?title=${sub}&author=${sub}&series=${sub}`;
+	const apiUrl = `https://book-finder1.p.rapidapi.com/api/search?title=${sub}&author=${sub}&series=${sub}&page=${page}`;
 	try {
-		const fetchResult = fetch(
-			new Request(`${apiUrl}&page=${page}`, options)
-		);
+		const fetchResult = fetch(new Request(`${apiUrl}`, options));
 		const response = await fetchResult;
 		if (response.ok) {
 			localStorage.clear();
