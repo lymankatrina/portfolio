@@ -197,6 +197,16 @@ input:required:invalid,
 input:focus:invalid {
 	background-color: rgba(238, 139, 139, 0.3);
 }
+.pages {
+	display: unset;
+	display: inline-block;
+}
+.pages a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+}
 footer {
 	padding: 1em;
 }

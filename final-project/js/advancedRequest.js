@@ -1,7 +1,3 @@
-let dateMod = new Date(document.lastModified);
-basicFooter.innerHTML = `<hr><p>Author: Katrina Lyman | Utah | Final Project</p>
-<p>Last Modified: ${dateMod}`;
-
 ("use strict");
 const button = document.querySelector("button");
 const sTitle = document.querySelector("#title");
@@ -13,31 +9,11 @@ const sLexile_min = document.querySelector("#lexile_min");
 const sLexile_max = document.querySelector("#lexile_max");
 const result = document.querySelector("#result");
 
-// build the html for the results
-function renderList(json) {
-	const books = json.results;
-	return `
-  ${books
-		.map(
-			(book) =>
-				`<div class="card">
-      <img class="bookPic" src="${book.published_works[0].cover_art_url}" alt="cover art of ${book.title}">
-      <div class="container">
-        <h4><b>Title: ${book.title}</b></h4>
-        <p><b>Series:</b> ${book.series_name}</p>
-        <p><b>Authors:</b> ${book.authors}</p>
-        <p><b>Language:</b> ${book.language}</p>
-        <p><b>Lexile:</b> ${book.measurements.english.lexile}</p>
-        <p><b>Number of Pages:</b> ${book.page_count}</p>
-        <p><b>Awards:</b> ${book.awards}</p>
-        <p><b>Categories:</b> ${book.subcategories}</p>
-        <p class="summary"><b>Summary:</b> ${book.summary}</p>
-        <p><b>ISBN:</b> ${book.published_works[0].isbn}</p>
-      </div>
-    </div>`
-		)
-		.join("")}
-`;
+// Count the results
+function countList() {
+	let retrievedData = localStorage.getItem("book");
+	let books2 = JSON.parse(retrievedData);
+	return books2.total_results;
 }
 
 // get the search criteria from the form
@@ -67,7 +43,7 @@ function buildCriteria() {
 	return searchOptions;
 }
 
-// This is the basic fetch request
+// This is the advanced fetch request
 async function fetchAdvancedBooks() {
 	// build the criteria to send to the fetch request
 	const criteria = buildCriteria();
@@ -82,14 +58,17 @@ async function fetchAdvancedBooks() {
 	try {
 		const fetchResult = fetch(
 			new Request(
-				`https://book-finder1.p.rapidapi.com/api/search?${criteria}results_per_page=20&page=1`,
+				`https://book-finder1.p.rapidapi.com/api/search?${criteria}`,
 				options
 			)
 		);
 		const response = await fetchResult;
 		if (response.ok) {
+			localStorage.clear();
 			const jsonData = await response.json();
-			result.innerHTML = renderList(jsonData);
+			localStorage.setItem("book", JSON.stringify(jsonData));
+			let booksCount = countList();
+			result.innerHTML = `Your Search returned <a href="../details/index.html">${booksCount} results</a>`;
 		} else {
 			result.innerHTML = `Response.status:${response.status}`;
 		}

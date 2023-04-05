@@ -5,20 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Book Details || Book Finder</title>
   <link rel="stylesheet" href="/final-project/style.css">
+  <link rel="stylesheet" href="https://use.typekit.net/qhe5erz.css" />
   <script defer src="../js/header.js"></script>
   <script defer src="../js/nav.js"></script>
   <script defer src="../js/footer.js"></script>
+  <script defer src="../js/pagination.js"></script>
 </head>
-<body>
-	<header id="mainHeader"></header>
-  <nav id="mainNav"></nav>
+<body onload="renderList()">
+	<header id="mainHeader" class="mainHeader"></header>
+  <nav id="mainNav" class="mainNav"></nav>
   <main>
-    <h2>Welcome to Book Finder</h2>
+    <h2>Book Finder Search Results</h2>
     <h3> Book Details</h3>
-      <div id="searchCriteria"></div>
       <div id="result"></div>
+      <div class="pages" id="pages">
+        <form>
+          <button value="Previous">Previous</button>
+          <button value="Next">Next</button>
+        </form>
+      </div>
   </main>
-  <footer id="mainFooter"></footer>
-  <script src="/final-project/js/basicRequest.js"></script>
+  <footer id="basicFooter"></footer>
+  <script src="../js/details.js"></script>
 </body>
 </html>

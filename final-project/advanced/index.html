@@ -6,25 +6,14 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<title>Advanced Search || Book Finder</title>
 		<link rel="stylesheet" href="../style.css" />
-		<!-- <script defer src="../js/header.js"></script>
+		<link rel="stylesheet" href="https://use.typekit.net/qhe5erz.css" />
+		<script defer src="../js/header.js"></script>
 		<script defer src="../js/nav.js"></script>
-		<script defer src="../js/footer.js"></script> -->
+		<script defer src="../js/footer.js"></script>
 	</head>
 	<body>
-		<header class="mainHeader">
-			<div class="header-container">
-				<img class="logo" src="../img/book-logo.svg" alt="book logo" />
-				<h1 class="header-text">Book Finder</h1>
-			</div>
-		</header>
-		<nav class="mainNav">
-			<ul>
-				<li class="btn"><a href="../index.html">Home</a></li>
-				<li vlass="btn">
-					<a href="index.html">Advanced Search</a>
-				</li>
-			</ul>
-		</nav>
+		<header id="mainHeader" class="mainHeader"></header>
+		<nav id="mainNav" class="mainNav"></nav>
 		<main>
 			<h2>Welcome to Book Finder</h2>
 			<h3>Advanced Search</h3>
@@ -91,8 +80,13 @@
 						max="2150"
 						step="50"
 					/><br />
-					<button type="button" id="search" value="Find a Book">
-						Find a Book
+					<button
+						type="button"
+						id="search"
+						name="Find a Book"
+						value="Find a Book"
+					>
+						Find a Book!
 					</button>
 				</fieldset>
 			</form>

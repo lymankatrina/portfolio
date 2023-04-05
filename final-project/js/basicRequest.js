@@ -1,56 +1,36 @@
-import { options } from "options.mjs";
-
 const button = document.querySelector("button");
 const subInput = document.querySelector("input");
 const result = document.querySelector("#result");
 
-function renderList(json) {
-	const books = json.results;
-	return `
-    ${books
-		.map(
-			(book) =>
-				`<div class="card">
-        <img class="bookPic" src="${book.published_works[0].cover_art_url}" alt="cover art of ${book.title}">
-        <div class="container">
-          <h4><b>Title: ${book.title}</b></h4>
-          <p><b>Series:</b> ${book.series_name}</p>
-          <p><b>Authors:</b> ${book.authors}</p>
-          <p><b>Language:</b> ${book.language}</p>
-          <p><b>Lexile:</b> ${book.measurements.english.lexile}</p>
-          <p><b>Number of Pages:</b> ${book.page_count}</p>
-          <p><b>Awards:</b> ${book.awards}</p>
-          <p><b>Categories:</b> ${book.subcategories}</p>
-          <p class="summary"><b>Summary:</b> ${book.summary}</p>
-          <p><b>ISBN:</b> ${book.published_works[0].isbn}</p>
-        </div>
-      </div>`
-		)
-		.join("")}
-  `;
+// This counts the results
+function countList() {
+	let retrievedData = localStorage.getItem("book");
+	let books2 = JSON.parse(retrievedData);
+	return books2.total_results;
 }
 
 // This is the basic fetch request
 async function fetchBooks(sub) {
-	// const options = {
-	// 	method: "GET",
-	// 	headers: {
-	// 		"X-RapidAPI-Key":
-	// 			"491c312488mshb16d3ecb5b93391p1610e9jsnb8aff7ce3bdc",
-	// 		"X-RapidAPI-Host": "book-finder1.p.rapidapi.com",
-	// 	},
-	// };
+	const options = {
+		method: "GET",
+		headers: {
+			"X-RapidAPI-Key":
+				"491c312488mshb16d3ecb5b93391p1610e9jsnb8aff7ce3bdc",
+			"X-RapidAPI-Host": "book-finder1.p.rapidapi.com",
+		},
+	};
+	const apiUrl = `https://book-finder1.p.rapidapi.com/api/search?title=${sub}&author=${sub}&series=${sub}`;
 	try {
-		const fetchResult = fetch(
-			new Request(
-				`https://book-finder1.p.rapidapi.com/api/search?title=${sub}&author=${sub}&series=${sub}&results_per_page=20&page=1`,
-				options
-			)
-		);
+		const fetchResult = fetch(new Request(`${apiUrl}`, options));
 		const response = await fetchResult;
 		if (response.ok) {
+			localStorage.clear();
 			const jsonData = await response.json();
-			result.innerHTML = renderList(jsonData);
+			localStorage.setItem("book", JSON.stringify(jsonData));
+			let booksCount = countList();
+			localStorage.setItem("currentPage", 0);
+			localStorage.setItem("fetch_url", Request);
+			result.innerHTML = `Your Search returned <a href="details/index.html">${booksCount} results</a>`;
 		} else {
 			result.innerHTML = `Response.status:${response.status}`;
 		}
@@ -59,6 +39,7 @@ async function fetchBooks(sub) {
 	}
 }
 
+// Event Listeners
 button.addEventListener("touchend", () => {
 	preventDefault();
 	fetchBooks();
