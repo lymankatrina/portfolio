@@ -201,10 +201,13 @@ input:focus:invalid {
 	display: unset;
 	display: inline-block;
 }
+.pages button {
+	width: 90%;
+}
 .pages a {
 	color: black;
 	float: left;
-	padding: 8px 16px;
+	padding: 8px 8px;
 	text-decoration: none;
 }
 footer {
