@@ -28,8 +28,6 @@ async function fetchBooks(sub) {
 			const jsonData = await response.json();
 			localStorage.setItem("book", JSON.stringify(jsonData));
 			let booksCount = countList();
-			localStorage.setItem("currentPage", 0);
-			localStorage.setItem("fetch_url", Request);
 			result.innerHTML = `Your Search returned <a href="details/index.html">${booksCount} results</a>`;
 		} else {
 			result.innerHTML = `Response.status:${response.status}`;
