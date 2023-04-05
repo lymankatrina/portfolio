@@ -1,8 +1,8 @@
 const button = document.querySelector("button");
-const subInput = document.querySelector("input");
+const sub = localStorage.getItem("subInput");
 const result = document.querySelector("#result");
-function paginated_fetchBooks(sub) {
-	options = {
+async function paginated_fetchBooks(sub) {
+	const options = {
 		method: "GET",
 		headers: {
 			"X-RapidAPI-Key":
@@ -10,20 +10,28 @@ function paginated_fetchBooks(sub) {
 			"X-RapidAPI-Host": "book-finder1.p.rapidapi.com",
 		},
 	};
-	apiUrl = `https://book-finder1.p.rapidapi.com/api/search?title=${sub}&author=${sub}&series=${sub}`;
-	page = 1;
-	previousResponse = [];
-	return fetch(new Request(`${apiUrl}&page=${page}`, options))
-		.then((response) => response.json())
-		.then((newResponse) => {
-			const response = [previousResponse.concat(newResponse)];
-			if (newResponse.length !== 0) {
-				page++;
-				return paginated_fetchBooks(apiUrl, page, response);
-			}
-			return response;
-		});
+	let page = 1;
+	const apiUrl = `https://book-finder1.p.rapidapi.com/api/search?title=${sub}&author=${sub}&series=${sub}`;
+	try {
+		const fetchResult = fetch(
+			new Request(`${apiUrl}&page=${page}`, options)
+		);
+		const response = await fetchResult;
+		if (response.ok) {
+			localStorage.clear();
+			const jsonData = await response.json();
+			localStorage.setItem("book", JSON.stringify(jsonData));
+			let booksCount = countList();
+			let pages = book.total_pages;
+			result.innerHTML = `Your Search returned <a href="details/index.html">${booksCount} results. There are ${pages} pages of results. Click to see the first page of results.</a>`;
+		} else {
+			result.innerHTML = `Response.status:${response.status}`;
+		}
+	} catch (e) {
+		result.innerHTML = e;
+	}
 }
+
 button.addEventListener("click", () => {
 	paginated_fetchBooks(subInput.value);
 });
