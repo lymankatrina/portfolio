@@ -1,5 +1,5 @@
 const button = document.querySelector("button");
-const subInput = localStorage.setItem(document.querySelector("input"));
+const subInput = document.querySelector("input");
 const result = document.querySelector("#result");
 
 // This counts the results
