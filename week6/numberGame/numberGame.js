@@ -19,6 +19,7 @@ function checkGuess() {
 
 	if (userGuess === randomNumber) {
 		lastResult.textContent = "Congratulations! You got it right!";
+		lastResult.style.backgroundColor = "green";
 		lowOrHi.textContent = "";
 		setGameOver();
 	} else if (guessCount === 10) {
@@ -27,6 +28,7 @@ function checkGuess() {
 		setGameOver();
 	} else {
 		lastResult.textContent = "Wrong!";
+		lastResult.style.backgroundColor = "red";
 		if (userGuess < randomNumber) {
 			lowOrHi.textContent = "Last guess was too low!";
 		} else if (userGuess > randomNumber) {
@@ -63,6 +65,8 @@ function resetGame() {
 	guessSubmit.disabled = false;
 	guessField.value = "";
 	guessField.focus();
+
+	lastResult.style.backgroundColor = "white";
 
 	randomNumber = Math.floor(Math.random() * 100) + 1;
 }
