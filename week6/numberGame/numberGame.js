@@ -22,7 +22,7 @@ function checkGuess() {
 	guesses.textContent = `${guesses.textContent} ${userGuess}`;
 
 	if (userGuess === randomNumber) {
-		lastResult.textContent = "Congratulations! You got it right!";
+		lastResult.textContent = `Congratulations! You got it right! It took you ${guessCount} guesses.`;
 		lastResult.style.backgroundColor = "green";
 		lowOrHi.textContent = "";
 		setGameOver();
