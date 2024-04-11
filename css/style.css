@@ -1,48 +1,101 @@
 body {
-  font-size: 18px;
-  line-height: 1.5;
-  background-color: white;
+	font-size: 18px;
+	line-height: 1.5;
+	background-color: white;
 }
 
 header,
 main,
 footer {
-  margin: 1.25rem;
-  max-width: 760px;
-  padding: 18px;
+	margin: 1.25rem;
+	max-width: 760px;
+	padding: 18px;
 }
 
 header,
 footer {
-  background-color: goldenrod;
-  color: navy;
-  text-align: center;
-  border-radius: 10px;
-  font-family: "Nunito Sans", sans-serif;
+	background-color: goldenrod;
+	color: navy;
+	text-align: center;
+	border-radius: 10px;
+	font-family: "Nunito Sans", sans-serif;
 }
 
 header img {
-  max-width: 200px;
-  float: right;
-  border: 1px solid #ccc;
-  box-shadow: 5px 5px 5px #999;
+	max-width: 200px;
+	float: right;
+	border: 1px solid #ccc;
+	box-shadow: 5px 5px 5px #999;
 }
 
 section h2 {
-  border-bottom: 1px solid black;
-  font-family: "Kalam", cursive;
-  color: navy;
+	border-bottom: 1px solid black;
+	font-family: "Kalam", cursive;
+	color: navy;
 }
 
 section ul {
-  font-family: "Nunito Sans", sans-serif;
-  color: navy;
+	font-family: "Nunito Sans", sans-serif;
+	color: navy;
 }
 
 a {
-  color: navy;
+	color: navy;
 }
 
 a.hover {
-  background-color: goldenrod;
+	background-color: goldenrod;
+}
+
+.resultParas {
+	font-size: 100%;
+	padding: 10px;
+	box-shadow: 3px 3px 6px black;
+	width: 75%;
+	justify-items: center;
+	margin: 10px;
+}
+
+.inputField {
+	font-size: 100%;
+	padding: 10px;
+	box-shadow: 3px 3px 6px black;
+	width: 75%;
+	justify-items: center;
+	margin: 10px;
+}
+.guesses {
+	background-color: gold;
+	font-size: 100%;
+	padding: 10px;
+	box-shadow: 3px 3px 6px black;
+}
+
+.lastResult {
+	font-size: 100%;
+	padding: 10px;
+	box-shadow: 3px 3px 6px black;
+}
+
+.lowOrHi {
+	font-size: 100%;
+	padding: 10px;
+}
+
+.guessField {
+	font-size: 100%;
+	padding: 10px;
+	box-shadow: 3px 3px 6px black;
+}
+
+.guessSubmit {
+	font-size: 100%;
+	padding: 10px;
+	box-shadow: 3px 3px 6px black;
+}
+
+body.resetButton {
+	font-size: 100%;
+	padding: 10px;
+	box-shadow: 3px 3px 6px black;
 }

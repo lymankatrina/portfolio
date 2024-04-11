@@ -22,8 +22,8 @@ function checkGuess() {
 	guesses.textContent = `${guesses.textContent} ${userGuess}`;
 
 	if (userGuess === randomNumber) {
-		lastResult.textContent = `Congratulations! You got it right! It took you ${guessCount} guesses.`;
-		lastResult.style.backgroundColor = "green";
+		lastResult.textContent = `Congratulations! You got it right! The correct number was ${userGuess}! It took you ${guessCount} guesses.`;
+		lastResult.style.backgroundColor = "lightgreen";
 		lowOrHi.textContent = "";
 		setGameOver();
 	} else if (guessCount === 10) {
@@ -32,7 +32,7 @@ function checkGuess() {
 		setGameOver();
 	} else {
 		lastResult.textContent = "Wrong!";
-		lastResult.style.backgroundColor = "red";
+		lastResult.style.backgroundColor = "salmon";
 		if (userGuess < randomNumber) {
 			lowOrHi.textContent = "Last guess was too low!";
 		} else if (userGuess > randomNumber) {
@@ -45,6 +45,7 @@ function checkGuess() {
 	guessField.focus();
 }
 
+guessField.addEventListener("change", checkGuess);
 guessSubmit.addEventListener("click", checkGuess);
 
 function setGameOver() {

@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Number Guessing Game</title>
+		<meta
+			name="description"
+			content="Basic Javascript Number Guessing Game"
+		/>
+		<link rel="stylesheet" href="https://use.typekit.net/qhe5erz.css" />
+		<link rel="stylesheet" href="css/style.css" />
 	</head>
-	<body>
+	<body class="numberGame">
+		<h1>Guess the Number in Less than 10 Turns</h1>
 		<div class="resultParas">
 			<p class="guesses"></p>
 			<p class="lastResult"></p>
 			<p class="lowOrHi"></p>
 		</div>
-		<label for="guessField">Enter a guess: </label>
-		<input type="number" id="guessField" class="guessField" />
-		<input type="submit" value="Submit guess" class="guessSubmit" />
+		<div class="inputField">
+			<label for="guessField">Enter a guess: </label>
+			<input type="number" id="guessField" class="guessField" />
+			<input type="submit" value="Submit guess" class="guessSubmit" />
+		</div>
 	</body>
 	<script src="numberGame.js"></script>
 </html>
