@@ -50,7 +50,6 @@ a.hover {
 .resultParas {
 	font-size: 100%;
 	padding: 10px;
-	box-shadow: 3px 3px 6px black;
 	width: 75%;
 	justify-items: center;
 	margin: 10px;
@@ -59,12 +58,12 @@ a.hover {
 .inputField {
 	font-size: 100%;
 	padding: 10px;
-	box-shadow: 3px 3px 6px black;
 	width: 75%;
 	justify-items: center;
 	margin: 10px;
 }
 .guesses {
+	display: none;
 	background-color: gold;
 	font-size: 100%;
 	padding: 10px;
@@ -72,12 +71,14 @@ a.hover {
 }
 
 .lastResult {
+	display: none;
 	font-size: 100%;
 	padding: 10px;
 	box-shadow: 3px 3px 6px black;
 }
 
 .lowOrHi {
+	display: none;
 	font-size: 100%;
 	padding: 10px;
 }
@@ -89,12 +90,6 @@ a.hover {
 }
 
 .guessSubmit {
-	font-size: 100%;
-	padding: 10px;
-	box-shadow: 3px 3px 6px black;
-}
-
-body.resetButton {
 	font-size: 100%;
 	padding: 10px;
 	box-shadow: 3px 3px 6px black;
